@@ -56,6 +56,6 @@ If you want to run the application locally, follow these steps:
 
 4. Run the Streamlit application:
    ```bash
-   streamlit run app.py
+   streamlit run streamlit.py
 
 #### Thank you for using the Credit Eligibility Application! Feel free to share your feedback.
