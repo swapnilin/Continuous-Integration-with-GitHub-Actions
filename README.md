@@ -59,3 +59,29 @@ If you want to run the application locally, follow these steps:
    streamlit run streamlit.py
 
 #### Thank you for using the Credit Eligibility Application! Feel free to share your feedback.
+
+5. Docker Essentials
+
+1. Docker build
+* Tells Docker: “Build an image from a Dockerfile.”
+* Docker reads the Dockerfile in the current directory (or the directory you specify).
+* `-t` is the tag that names your image. Here since I am pushing to dockerhub, dockerhub_username / image_name
+* latest is like a label. you can use v1, v2, etc.
+* the dot specifies the folder Docker will use for building the image. `. = current directory`. Docker looks for Dockerfile in this directory.
+```bash
+docker build -t batman771/loaneligibility:latest .
+```
+
+2. Docker Run
+Starts a container from an image. `-p` maps a port from the container to your host machine. `8501` (host) → `8501` (container). This is needed because containers have their own network and cannot be accessed directly from your host machine unless ports are mapped. 
+`-d` run the container in detached mode (or in the background) or your terminal is tied to it always. You can stop it from Docker_desktop > Containers > Stop
+
+```bash
+docker run -d -p 8501:8501 batman771/loaneligibility:latest
+```
+
+3. Docker Push
+If the container runs smoothly locally, we can push it to DockerHub. [My repo link>](https://hub.docker.com/repositories/batman771?_gl=1*xtyxv*_gcl_au*NzA5NzQ5MjI4LjE3Njk1NDk1OTg.*_ga*Nzk0OTYzMzEwLjE3Njk1NDk1ODE.*_ga_XJWPQMJYHQ*czE3Njk1NTgxOTkkbzMkZzEkdDE3Njk1NTg1OTYkajUzJGwwJGgw)
+```bash
+docker push batman771/loaneligibility:latest
+```
