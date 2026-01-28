@@ -83,6 +83,7 @@ docker build -t batman771/loaneligibility:latest .
 ```
 
 3. Docker Run
+
 Starts a container from an image. `-p` maps a port from the container to your host machine. `8501` (host) → `8501` (container). This is needed because containers have their own network and cannot be accessed directly from your host machine unless ports are mapped. 
 `-d` run the container in detached mode (or in the background) or your terminal is tied to it always. You can stop it from Docker_desktop > Containers > Stop
 
@@ -91,12 +92,14 @@ docker run -d -p 8501:8501 batman771/loaneligibility:latest
 ```
 
 4. Docker Push
+
 If the container runs smoothly locally, we can push it to DockerHub. [My repo link>](https://hub.docker.com/repositories/batman771?_gl=1*xtyxv*_gcl_au*NzA5NzQ5MjI4LjE3Njk1NDk1OTg.*_ga*Nzk0OTYzMzEwLjE3Njk1NDk1ODE.*_ga_XJWPQMJYHQ*czE3Njk1NTgxOTkkbzMkZzEkdDE3Njk1NTg1OTYkajUzJGwwJGgw)
 ```bash
 docker push batman771/loaneligibility:latest
 ```
 
 5. Docker Pull
+
 Once an image is in the public repo, you can pull any image and run it. First delete the image (and any running container with that image) and pull the image again from the public repo. And run it.
 ```bash
 docker pull batman771/loaneligibility:latest
