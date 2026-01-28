@@ -72,6 +72,8 @@ docker rmi <imagename>                      # Remove the specified image from th
 docker rmi $(docker images -q)              # Remove all images from this machine
 ```
 
+**If you have Docker desktop you can view the images and the containers in the app.**
+
 2. Docker build
 * Tells Docker: “Build an image from a Dockerfile.”
 * Docker reads the Dockerfile in the current directory (or the directory you specify).
