@@ -58,11 +58,21 @@ If you want to run the application locally, follow these steps:
    ```bash
    streamlit run streamlit.py
 
-#### Thank you for using the Credit Eligibility Application! Feel free to share your feedback.
 
-5. Docker Essentials
+ ## Docker Essentials
 
-1. Docker build
+ 1. Docker Commands
+ ```bash
+docker ps                                   # See a list of all running containers
+docker ps -a                                # See a list of all containers, even the ones not running
+docker rm <hash>                            # Remove the specified container from this machine
+docker rm $(docker ps -a -q)                # Remove all containers from this machine
+docker images -a                            # Show all images on this machine
+docker rmi <imagename>                      # Remove the specified image from this machine
+docker rmi $(docker images -q)              # Remove all images from this machine
+```
+
+2. Docker build
 * Tells Docker: “Build an image from a Dockerfile.”
 * Docker reads the Dockerfile in the current directory (or the directory you specify).
 * `-t` is the tag that names your image. Here since I am pushing to dockerhub, dockerhub_username / image_name
@@ -72,7 +82,7 @@ If you want to run the application locally, follow these steps:
 docker build -t batman771/loaneligibility:latest .
 ```
 
-2. Docker Run
+3. Docker Run
 Starts a container from an image. `-p` maps a port from the container to your host machine. `8501` (host) → `8501` (container). This is needed because containers have their own network and cannot be accessed directly from your host machine unless ports are mapped. 
 `-d` run the container in detached mode (or in the background) or your terminal is tied to it always. You can stop it from Docker_desktop > Containers > Stop
 
@@ -80,8 +90,16 @@ Starts a container from an image. `-p` maps a port from the container to your ho
 docker run -d -p 8501:8501 batman771/loaneligibility:latest
 ```
 
-3. Docker Push
+4. Docker Push
 If the container runs smoothly locally, we can push it to DockerHub. [My repo link>](https://hub.docker.com/repositories/batman771?_gl=1*xtyxv*_gcl_au*NzA5NzQ5MjI4LjE3Njk1NDk1OTg.*_ga*Nzk0OTYzMzEwLjE3Njk1NDk1ODE.*_ga_XJWPQMJYHQ*czE3Njk1NTgxOTkkbzMkZzEkdDE3Njk1NTg1OTYkajUzJGwwJGgw)
 ```bash
 docker push batman771/loaneligibility:latest
 ```
+
+5. Docker Pull
+Once an image is in the public repo, you can pull any image and run it. First delete the image (and any running container with that image) and pull the image again from the public repo. And run it.
+```bash
+docker pull batman771/loaneligibility:latest
+```
+
+#### Thank you for using the Credit Eligibility Application! Feel free to share your feedback.
