@@ -6,7 +6,7 @@ import sys
 from unittest.mock import MagicMock, patch
 
 # Add src to sys.path to ensure we can import modules
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 
 from src.data.make_dataset import load_and_preprocess_data
 from src.models.train_model import train_RFmodel
