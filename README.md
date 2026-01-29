@@ -123,11 +123,39 @@ on:
       -branch1
 ```
 
+Linting scan your Python code for errors, bad practices, and syntax issues without running the code. flake8 checks your code without executing it, which means:
+* Faster feedback
+* Fewer runtime surprises
+
+```bash
+name: lint with flake8
+```
+Examples of issues CI should block:
+
+| Category         | Example                           |
+| ---------------- | --------------------------------- |
+| Syntax issues    | Missing imports, unused variables |
+| Logical smells   | Shadowed variables                |
+| Bugs             | Referencing undefined names       |
+| Style violations | Inconsistent formatting           |
+| Dead code        | Imports never used                |
+
+Example that tests might miss:
+
+```bash
+import numpy as np  # unused
+
+def predict(x):
+    return y + 1  # y is undefined
+```
+* flake8 fails immediately
+* pytest might never reach this path
+
 This pytest_test.py file has all the tests that need to be carried out after every updated to the code.
 ```bash
 - name: run tests
       run: |
-        pytest_test.py
+        pytest _test.py
 ```
 
 #### Thank you for using the Credit Eligibility Application! Feel free to share your feedback.
