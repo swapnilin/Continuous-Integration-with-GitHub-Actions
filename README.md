@@ -123,14 +123,14 @@ on:
       -branch1
 ```
 
-Linting scan your Python code for errors, bad practices, and syntax issues without running the code. flake8 checks your code without executing it, which means:
+Linting scans your Python code for errors, bad practices, and syntax issues without running the code. **flake8** checks your code without executing it, which means:
 * Faster feedback
 * Fewer runtime surprises
 
 ```bash
 name: lint with flake8
 ```
-Examples of issues CI should block:
+Examples of issues linting blocks:
 
 | Category         | Example                           |
 | ---------------- | --------------------------------- |
