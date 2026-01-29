@@ -107,4 +107,27 @@ Once an image is in the public repo, you can pull any image and run it. First de
 docker pull batman771/loaneligibility:latest
 ```
 
+## CI Essentials
+This yaml code can be found on GitHub > Actions. Visit [GitHub > Actions](https://github.com/swapnilin/Credit_Eligibility_Application_with_Streamlit/actions/new), and look for 'Python Application' and click on Configure.
+
+1. Understanding the ci.yaml code
+This tells the GitHub actions to execute the flow only when there is push or pull request on the 'main' branch. You can also specify multiple branches as shown in the pull_request.
+```bash
+on:
+  push:
+    branches:
+      -main
+  pull_request:
+    branches:
+      -main
+      -branch1
+```
+
+This pytest_test.py file has all the tests that need to be carried out after every updated to the code.
+```bash
+- name: run tests
+      run: |
+        pytest_test.py
+```
+
 #### Thank you for using the Credit Eligibility Application! Feel free to share your feedback.
